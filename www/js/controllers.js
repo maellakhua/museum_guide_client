@@ -7,11 +7,11 @@ angular.module('starter.controllers', [])
 
   $scope.venues = [];
 
- //var CLIENT_ID = "RFD02VHAVG00CCNY1MBOOO2EL4KSYZOCJ5U4ZD5C1WKWY1TF";
-  //var CLIENT_SECRET = "CY1KKNBP3MMJ2FOLUP3NFNMJJRRHRBXTQB5AEYPMIT0SR2E0";
-  //var CATEGORY_ID = "4bf58dd8d48988d181941735";
+ var CLIENT_ID = "RFD02VHAVG00CCNY1MBOOO2EL4KSYZOCJ5U4ZD5C1WKWY1TF";
+  var CLIENT_SECRET = "CY1KKNBP3MMJ2FOLUP3NFNMJJRRHRBXTQB5AEYPMIT0SR2E0";
+  var CATEGORY_ID = "4bf58dd8d48988d181941735";
  
-  var radius = "4000";
+  var radius = "3000";
   var intent = "browse";
   var ll;
   
@@ -21,11 +21,11 @@ angular.module('starter.controllers', [])
   var yyyy = today.getFullYear();
 
   if(dd<10) {
-      dd='0'+dd;
+      dd='0'+dd
   } 
 
   if(mm<10) {
-      mm='0'+mm;
+      mm='0'+mm
   } 
 
   today = ''+yyyy+mm+dd;
@@ -38,15 +38,9 @@ var onSuccess = function(position) {
         .get(foursquareUrl, {cache: true})
         .then(function(response){
           console.log(response);
-  
           $scope.venues = response.data.response.venues;
-           $scope.venue = response.data.response.venue;
-         
-       
-        
         });
 };
-
 function onError(error) {
     alert('code: '    + error.code    + '\n' +
           'message: ' + error.message + '\n');
@@ -109,9 +103,8 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
                 $scope.$broadcast('scroll.refreshComplete')
               })
         }
-
+  
 })
-
 .controller('VenueCtrl', function($scope, $stateParams, $http) {
   $scope.venue = {};
 
@@ -134,7 +127,7 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
   today = ''+yyyy+mm+dd;
 
-  var foursquareUrl = 'https://api.foursquare.com/v2/venues/search?near=' + $stateParams.venueId + '?client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET + '&v=' + today;
+ var foursquareUrl = 'https://api.foursquare.com/v2/venues/' + $stateParams.venueId + '?client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET + '&v=' + today;
 
   $http
         .get(foursquareUrl, {cache: true})
@@ -145,9 +138,3 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
           $scope.image2 = $scope.venue.photos.groups[0].items[1].prefix + $scope.venue.photos.groups[0].items[1].width + 'x' + $scope.venue.photos.groups[0].items[1].height + $scope.venue.photos.groups[0].items[1].suffix;
         });
 })
- 
-
-
-
-;
-    

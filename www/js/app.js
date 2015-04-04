@@ -30,11 +30,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       controller: 'AppCtrl'
     })
 
-  .state('app.map', {
-      url: "/map",
+  .state('app.data', {
+      url: "/data",
       views: {
         'menuContent' :{
-          templateUrl: "templates/map.html",
+          templateUrl: "templates/data.html",
            
         }
       }
