@@ -7,9 +7,9 @@ angular.module('starter.controllers', [])
 
   $scope.venues = [];
 
- var CLIENT_ID = "RFD02VHAVG00CCNY1MBOOO2EL4KSYZOCJ5U4ZD5C1WKWY1TF";
-  var CLIENT_SECRET = "CY1KKNBP3MMJ2FOLUP3NFNMJJRRHRBXTQB5AEYPMIT0SR2E0";
-  var CATEGORY_ID = "4bf58dd8d48988d181941735";
+ //var CLIENT_ID = "RFD02VHAVG00CCNY1MBOOO2EL4KSYZOCJ5U4ZD5C1WKWY1TF";
+  //var CLIENT_SECRET = "CY1KKNBP3MMJ2FOLUP3NFNMJJRRHRBXTQB5AEYPMIT0SR2E0";
+  //var CATEGORY_ID = "4bf58dd8d48988d181941735";
  
   var radius = "4000";
   var intent = "browse";
@@ -21,11 +21,11 @@ angular.module('starter.controllers', [])
   var yyyy = today.getFullYear();
 
   if(dd<10) {
-      dd='0'+dd
+      dd='0'+dd;
   } 
 
   if(mm<10) {
-      mm='0'+mm
+      mm='0'+mm;
   } 
 
   today = ''+yyyy+mm+dd;
